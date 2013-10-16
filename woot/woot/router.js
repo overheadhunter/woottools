@@ -151,3 +151,11 @@ woot.Router = new Class({
 	}
 	
 });
+
+window.addEvent('domready', function() {
+	if (woot.routes) {
+		woot.router = new woot.Router(woot.routes);
+	} else {
+		throw Error("woottools configuration invalid. Please define woot.routes!");
+	}
+});

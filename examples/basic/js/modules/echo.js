@@ -14,8 +14,8 @@ woot.createModule({
 			['h2', 'echo module'],
 			['p', 'this module shows how to hook up events in a module.'],
 			['form',
-			 ['input', {'type': 'text', events: {'submit': this.doEcho}, 'id': 'echoInput'}],
-			 ['input', {'type': 'submit', events: {'click': this.doEcho}, 'value': 'echo!'}],
+			 ['input', {'type': 'text', 'events': {'submit': this.doEcho}, 'id': 'echoInput'}],
+			 ['input', {'type': 'submit', 'events': {'click': this.doEcho}, 'value': 'echo!'}],
 			 ['p', {'id': 'statusLabel'}]
 			]
 		];

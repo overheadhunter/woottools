@@ -1,24 +1,12 @@
 /*
- * Make sure, modulePaths is configured:
- */
-if (typeOf(woot.modulePaths) != 'object') {
-	throw new Error("please insert the woot configuration before ");
-}
-
-/*
  * Loading of modules:
  */
-woot.ModuleCache = new Class({
+woot.moduleCache = {
 	moduleCache: {},
-	modulePaths: {},
 	moduleExecutorCache: {},
 	
-	initialize: function(modulePaths) {
-		this.modulePaths = modulePaths;
-	},
-	
 	getModule: function(moduleName, moduleExecutionConfig) {
-		var path = this.modulePaths[moduleName];
+		var path = woot.modulePaths[moduleName];
 		if (!path) {
 			throw new Error("unknown module " + moduleName);
 		}
@@ -69,7 +57,7 @@ woot.ModuleCache = new Class({
 	registerModuleExecutor: function(executor) {
 		this.moduleExecutorCache[executor.executorName] = executor;
 	}
-});
+};
 
 
 /*
