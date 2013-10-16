@@ -1,10 +1,6 @@
 woot.createModule({
 	moduleName: "echo",
 
-	onDomReady: function() {
-		console.log("dom is ready!");
-	},
-
 	doEcho: function(event) {
 		if(event) {
 			event.preventDefault(); //prevent submitting of forms
@@ -16,6 +12,7 @@ woot.createModule({
 	getDom: function() {
 		return ['div',
 			['h2', 'echo module'],
+			['p', 'this module shows how to hook up events in a module.'],
 			['form',
 			 ['input', {'type': 'text', events: {'submit': this.doEcho}, 'id': 'echoInput'}],
 			 ['input', {'type': 'submit', events: {'click': this.doEcho}, 'value': 'echo!'}],
