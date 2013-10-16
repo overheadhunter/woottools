@@ -85,7 +85,7 @@ woot.createModule({
   getDom: function() {
     return ['div',
       ['form',
-        ['input', {'type': 'button', events: {'click': this.doEcho}, 'value': 'echo!'}],
+        ['input', {'type': 'button', 'events': {'click': this.doEcho}, 'value': 'echo!'}],
       ]
     ];
   }
@@ -113,4 +113,4 @@ woot.createModule({
 
 ## License
 
-Distributed under the CC BY 3.0 license. See the LICENSE file for more info.
+Distributed under the MIT license. See the LICENSE file for more info.
