@@ -59,6 +59,29 @@ woot.moduleCache = {
 	}
 };
 
+/*
+ * Module factory:
+ */
+woot.createModule = function(definition) {
+	if (!definition.moduleName) {
+		throw new Error("your module definition needs a property 'moduleName': " + definition);
+	}
+	if (definition.Extends) {
+		throw new Error("modules must not define a property 'Extends'");
+	}
+	var classDefinition = Object.merge({Extends: woot.Module}, definition);
+	var clazz = new Class(classDefinition);
+	var instance = new clazz();
+	woot.moduleCache.registerModule(instance);
+};
+
+
+/*
+ *
+ */
+woot.loadModule = function(moduleName, moduleExecutionConfig) {
+	return woot.moduleCache.getModule(moduleName, moduleExecutionConfig);
+};
 
 /*
  * Modules itself:
@@ -77,23 +100,6 @@ woot.Module = new Class({
 
 	getDom: function() {return [];}
 });
-
-/*
- * Module factory:
- */
-woot.createModule = function(definition) {
-	if (!definition.moduleName) {
-		throw new Error("your module definition needs a property 'moduleName': " + definition);
-	}
-	if (definition.Extends) {
-		throw new Error("modules must not define a property 'Extends'");
-	}
-	var classDefinition = Object.merge({Extends: woot.Module}, definition);
-	var clazz = new Class(classDefinition);
-	var instance = new clazz();
-	woot.moduleCache.registerModule(instance);
-};
-
 
 /*
  * Module executor:

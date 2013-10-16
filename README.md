@@ -2,10 +2,7 @@ woottools
 =========
 
 Lean mootools-based framework for hashbang-routing and JSON-based DOM definitions.
-
-## Important
-
-woottools is in a very early stage of development and the API may be subject to change.
+_Important:_ woottools is in a very early stage of development and the API may be subject to change.
 
 ## Quickstart
 
@@ -19,7 +16,7 @@ Include dependencies (see woot.js for details) and a your woot configuration fil
 <script type="text/javascript" src="js/wootConfig.js"></script>
 ```
 
-Configure your modules
+Configure your modules:
 ``` javascript
 woot.modulePaths = {
   "home": "js/modules/home.js",
@@ -28,25 +25,19 @@ woot.modulePaths = {
 };
 ```
 
-Configure routes
+Configure routes:
 ``` javascript
 woot.routes = {
   "/home": function(routingContext) {
-    woot.moduleCache.getModule("home",
-      {'executor': 'replaceDom', 'obj': $('siteContent')}
-    );
+    woot.loadModule("home", {'executor': 'replaceDom', 'obj': $('siteContent')});
   },
 
   "/search/q:[0-9a-z]": function(routingContext) {
-    woot.moduleCache.getModule("search",
-      {'executor': 'replaceDom', 'obj': $('siteContent'), 'routingContext': routingContext}
-    );
+    woot.loadModule("search", {'executor': 'replaceDom', 'obj': $('siteContent'), 'routingContext': routingContext});
   },
 
   "/echo": function(routingContext) {
-    woot.moduleCache.getModule("echo",
-      {'executor': 'replaceDom', 'obj': $('siteContent')}
-    );
+    woot.loadModule("echo", {'executor': 'replaceDom', 'obj': $('siteContent')});
   }
         
 };
@@ -57,9 +48,9 @@ Now the following will happen:
 * if you navigate to `#!/search/q:example` js/modules/search.js gets executed with the parameter q set.
 * if you navigate to `#!/echo` js/modules/echo.js gets executed
 
-### Defining Modules
+### Writing Modules
 
-The basic module simply returns a JsonML-encoded DOM (see http://jsonml.org).
+The basic module simply returns a [JsonML](http://jsonml.org)-encoded DOM:
 ``` javascript
 woot.createModule({
   moduleName: "home",
@@ -110,6 +101,15 @@ woot.createModule({
   }
 });
 ```
+
+## Compatibility
+
+Currently I can say, that it works well in current versions of Chrome, Safari and Firefox as well as MSIE 8+.
+woottools depends on hashchange events. For browsers, that don't [support hashchange events](http://caniuse.com/hashchange),
+this mootools extension solves it by polling `location.hash`: http://mootools.net/forge/p/mootools_onhashchange_event
+
+A detailed compatibility list will appear here soon.
+
 
 ## License
 

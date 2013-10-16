@@ -116,6 +116,10 @@ woot.nodeFactory = {
 	}
 };
 
+/* 
+ * For browsers, that don't support hashchange events (http://caniuse.com/hashchange),
+ * please include this fix: http://mootools.net/forge/p/mootools_onhashchange_event
+ */
 woot.Router = new Class({
 	rootRoutingNode: null,
 	routingCount: 0,
