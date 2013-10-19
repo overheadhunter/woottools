@@ -109,8 +109,9 @@ Take a look at [moduleExecutors.js](woot/woot/moduleExecutors.js):
 woot.createModuleExecutor({
   /**
    * Unique name of this executor.
-   * Should have a "method name flavour", as this executor will become available as a method of
-   * LoadedModule (so you can use woot.loadModule("someModule").executorName(param1, param2, ...).
+   * Should have a "method name flavour", as this executor will become available as
+   * a method of LoadedModule (so you can use
+   * woot.loadModule("someModule").executorName(param1, param2, ...).
    *
    * @property executorName
    * @type {String}
@@ -120,7 +121,7 @@ woot.createModuleExecutor({
   /*
    * @param {Object} module A module, whose DOM will be injected into domParentNode.
    * @param {Element} domParentNode The DOM node, whose content should be replaced.
-   * @param {Object} routingContext Optional routingContext to be passed through to the module.
+   * @param {Object} routingContext Optional routingContext for the module.
    */
   execute: function(module, domParentNode, routingContext) {
     if (routingContext) {
