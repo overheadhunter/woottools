@@ -8,12 +8,18 @@ woot.Module = new Class({
 	dom: null,
 	routingContext: {},
 
-	prepareDom: function() {
-		this.dom = this.getDomDefinition().parseJsonML();
-		this.onDomReady();
-	},
-
 	onDomReady: function() {},
+	
+	resetDom: function() {
+		this.dom = null;
+	},
+	
+	getDom: function() {
+		if (!this.dom) {
+			this.dom = this.getDomDefinition().parseJsonML();;
+		}
+		return this.dom;
+	},
 
 	getDomDefinition: function() {return [];}
 });
