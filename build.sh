@@ -4,6 +4,7 @@ licenseFile="./LICENSE"
 wootScripts="./woot/woot/*"
 concatenatedFile="./build/woot_concat.js"
 compressedFile="./build/woot_compressed.js"
+releaseFile="./woot/woot.js"
 yuicompressor="./build/yuicompressor-2.4.8.jar"
 
 # Check if yuicompressor exists
@@ -29,5 +30,9 @@ echo "*/" >> $compressedFile
 
 # Add compressed script to output
 result=`java -jar $yuicompressor --charset UTF-8 --type js $concatenatedFile >> $compressedFile`
+
+if [ result ]; then
+	cp $compressedFile $releaseFile
+fi
 
 exit $result;
