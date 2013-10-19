@@ -1,6 +1,8 @@
 woottools
 =========
 
+[Download latest yuicompressed woot.js](woot/woot.js)
+
 Lean mootools-based framework for hashbang-routing and JSON-based DOM definitions.
 _Important:_ woottools is in a very early stage of development and the API may be subject to change.
 
