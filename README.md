@@ -29,17 +29,17 @@ Configure routes:
 ``` javascript
 woot.routes = {
   "/home": function(routingContext) {
-    woot.loadModule("home", {'executor': 'replaceDom', 'obj': $('siteContent')});
+    woot.loadModule("home").replaceDom($('siteContent'));
   },
 
   "/search/q:[0-9a-z]": function(routingContext) {
-    woot.loadModule("search", {'executor': 'replaceDom', 'obj': $('siteContent'), 'routingContext': routingContext});
+    woot.loadModule("search").replaceDom($('siteContent'), routingContext);
   },
 
   "/echo": function(routingContext) {
-    woot.loadModule("echo", {'executor': 'replaceDom', 'obj': $('siteContent')});
+    woot.loadModule("echo").replaceDom($('siteContent'));
   }
-        
+
 };
 ```
 
@@ -55,7 +55,7 @@ The basic module simply returns a [JsonML](http://jsonml.org)-encoded DOM:
 woot.createModule({
   moduleName: "home",
 
-  getDom: function() {
+  getDomDefinition: function() {
     return ['div',
       ['h2', 'home'],
       ['p', 'this is a very basic module, that only contains a simple JsonML-encoded DOM tree.']
@@ -73,7 +73,7 @@ woot.createModule({
     // do stuff
   },
 
-  getDom: function() {
+  getDomDefinition: function() {
     return ['div',
       ['form',
         ['input', {'type': 'button', 'events': {'click': this.doEcho}, 'value': 'echo!'}],
@@ -92,12 +92,43 @@ woot.createModule({
     this.dom.getFirst('#query').set('text', 'You have searched for: ' + this.routingContext.q);
   },
 
-  getDom: function() {
+  getDomDefinition: function() {
     return ['div',
       ['h2', 'search'],
       ['p', 'this example shows how to use path parameters. Try changing it in the URL.'],
       ['p', {'id': 'query'}]
     ];
+  }
+});
+```
+
+### Implementing custom executors for loaded modules
+
+Take a look at [moduleExecutors.js](woot/woot/moduleExecutors.js):
+``` javascript
+woot.createModuleExecutor({
+  /**
+   * Unique name of this executor.
+   * Should have a "method name flavour", as this executor will become available as a method of
+   * LoadedModule (so you can use woot.loadModule("someModule").executorName(param1, param2, ...).
+   *
+   * @property executorName
+   * @type {String}
+   */
+  executorName: 'replaceDom',
+
+  /*
+   * @param {Object} module A module, whose DOM will be injected into domParentNode.
+   * @param {Element} domParentNode The DOM node, whose content should be replaced.
+   * @param {Object} routingContext Optional routingContext to be passed through to the module.
+   */
+  execute: function(module, domParentNode, routingContext) {
+    if (routingContext) {
+      module.routingContext = routingContext;
+    }
+    module.prepareDom();
+    domParentNode.empty();
+    domParentNode.grab(module.dom);
   }
 });
 ```

@@ -13,7 +13,7 @@ woot.createModule({
 		$('statusLabel').set('text', $('echoInput').get('value'));
 	},
 
-	getDom: function() {
+	getDomDefinition: function() {
 		return ['div',
 			['h2', 'search'],
 			['p', 'this example shows how to use path parameters. Try changing it in the URL.'],

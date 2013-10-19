@@ -9,7 +9,7 @@ woot.createModule({
 		$('statusLabel').set('text', $('echoInput').get('value'));
 	},
 
-	getDom: function() {
+	getDomDefinition: function() {
 		return ['div',
 			['h2', 'echo module'],
 			['p', 'this module shows how to hook up events in a module.'],

@@ -11,15 +11,15 @@ woot.modulePaths = {
 woot.routes = {
 	
 	"/home": function(routingContext) {
-		woot.loadModule("home", {'executor': 'replaceDom', 'obj': $('siteContent')});
+		woot.loadModule("home").replaceDom($('siteContent'));
 	},
 	
 	"/search/q:[0-9a-z]": function(routingContext) {
-		woot.loadModule("search", {'executor': 'replaceDom', 'obj': $('siteContent'), 'routingContext': routingContext});
+		woot.loadModule("search").replaceDom($('siteContent'), routingContext);
 	},
 	
 	"/echo": function(routingContext) {
-		woot.loadModule("echo", {'executor': 'replaceDom', 'obj': $('siteContent')});
+		woot.loadModule("echo").replaceDom($('siteContent'));
 	}
 	
 };

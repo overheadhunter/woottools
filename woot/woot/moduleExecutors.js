@@ -1,22 +1,28 @@
-/*
- * This module executor replaces all content inside of 'obj' witht the DOM of the loaded module.
- *
- * Parameters in the moduleExecutionConfig are:
- * - obj: a dom element, that will be parent of the module's dom
- * - routingContext: object passed from the router to the module
+/**
+ * This module executor replaces all content inside of 'domParentNode' witht the DOM of the loaded module.
  */
 woot.createModuleExecutor({
+	/**
+	 * Unique name of this executor.
+	 * Should have a "method name flavour", as this executor will become available as a method of
+	 * LoadedModule (so you can use woot.loadModule("someModule").executorName(param1, param2, ...).
+	 *
+	 * @property executorName
+	 * @type {String}
+	 */
 	executorName: 'replaceDom',
 	
-	execute: function(module, moduleExecutionConfig) {
-		if(typeOf(moduleExecutionConfig.obj) != 'element') {
-			throw new Error('replaceDom executor needs a property "obj", whose DOM subtree can be replaced.');
-		}
-		if (moduleExecutionConfig.routingContext) {
-			module.routingContext = moduleExecutionConfig.routingContext;
+	/**
+	 * @param {Object} module A module, whose DOM will be injected into domParentNode.
+	 * @param {Element} domParentNode The DOM node, whose content should be replaced.
+	 * @param {Object} routingContext Optional routingContext to be passed through to the module.
+	 */
+	execute: function(module, domParentNode, routingContext) {
+		if (routingContext) {
+			module.routingContext = routingContext;
 		}
 		module.prepareDom();
-		moduleExecutionConfig.obj.empty();
-		moduleExecutionConfig.obj.grab(module.dom);
+		domParentNode.empty();
+		domParentNode.grab(module.dom);
 	}
 });
