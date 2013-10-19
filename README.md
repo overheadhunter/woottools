@@ -104,7 +104,7 @@ woot.createModule({
 
 ### Implementing custom executors for loaded modules
 
-Take a look at [moduleExecutors.js](woot/woot/moduleExecutors.js):
+Take a look at [moduleExecutors.js](woot/woot/21_moduleExecutors.js):
 ``` javascript
 woot.createModuleExecutor({
   /**

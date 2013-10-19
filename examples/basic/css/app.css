@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/* body */
+
+body {
+	font-size: 16px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: lighter;
+	color: #222;
+	line-height: 150%;
+	margin: 5em;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #f00;
+}
+
+a:hover {
+	color: #800;
+}
+
+nav ul {
+	padding: 0;
+}
+
+nav ul li {
+	list-style-type: none;
+	display: inline-block;
+	margin-right: 2em;
+}
