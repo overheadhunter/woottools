@@ -35,7 +35,7 @@ woot.ModuleExecutor = new Class({
 	executorName: null,
 	
 	execute: function(module) {
-		module.prepareDom();
+		// to be overwritten
 		console.log('Executing module "' + module.moduleName + '" with executor "' + this.executorName + '"');
 	}
 });
@@ -66,7 +66,6 @@ woot.LoadedModule = new Class({
 	 * The arguments of this method call are 
 	 */
 	execute: function() {
-		console.log('Executing module ' + this.module.moduleName);
 		if (instanceOf(this.executor, woot.ModuleExecutor)) {
 			this.executionParameters.unshift(this.module);
 			// bind method, pass params and run:
