@@ -91,7 +91,7 @@ woot.createModule({
   moduleName: "search",
 
   onDomReady: function() {
-    this.dom.getFirst('#query').set('text', 'You have searched for: ' + this.routingContext.q);
+    $('query').set('text', 'You have searched for: ' + this.routingContext.q);
   },
 
   getDomDefinition: function() {
