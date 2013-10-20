@@ -129,9 +129,9 @@ woot.createModuleExecutor({
     if (routingContext) {
       module.routingContext = routingContext;
     }
-    module.prepareDom();
     domParentNode.empty();
-    domParentNode.grab(module.dom);
+    domParentNode.grab(module.getDom());
+    module.onDomReady();
   }
 });
 ```
