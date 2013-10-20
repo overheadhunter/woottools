@@ -18,6 +18,7 @@ if (!wootScriptLocation) {
 }
 
 // load script, woottools consist of. 
+Asset.javascript(wootScriptLocation+'/woot/01_consoleStub.js');
 Asset.javascript(wootScriptLocation+'/woot/01_stringExtensions.js');
 Asset.javascript(wootScriptLocation+'/woot/01_arrayExtensions.js');
 Asset.javascript(wootScriptLocation+'/woot/10_router.js');
