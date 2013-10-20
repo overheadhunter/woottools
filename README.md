@@ -138,11 +138,24 @@ woot.createModuleExecutor({
 
 ## Compatibility
 
-Currently I can say, that it works well in current versions of Chrome, Safari and Firefox as well as MSIE 8+.
-woottools depends on hashchange events. For browsers, that don't [support hashchange events](http://caniuse.com/hashchange),
+Currently I can say, that it works well in current versions of all major browsers.
+woottools depends on hashchange events. For browsers like MSIE 6, that don't [support hashchange events](http://caniuse.com/hashchange),
 this mootools extension solves it by polling `location.hash`: http://mootools.net/forge/p/mootools_onhashchange_event
 
-A detailed compatibility list will appear here soon.
+| Browser       | Minimum version known to work | Minimum version assumed to work |
+| ------------- |-------------:|-------------:|
+| Chrome        | 30.0         | 5.0          |
+| Firefox       | 21.0         | 3.6          |
+| MSIE          | 8.0          | 8.0          |
+| Opera         | 14.0         | 10.6         |
+| Safari        | 6.0          | 5.0          |
+
+| mobile Browser | Minimum version known to work | Minimum version assumed to work |
+| -------------- |-------------:|-------------:|
+| iOS Safari     | 7.0          | 4.0          |
+
+
+These tables will be completed as soon as I have time.
 
 
 ## License
