@@ -145,9 +145,9 @@ this mootools extension solves it by polling `location.hash`: http://mootools.ne
 | Browser       | Minimum version known to work | Minimum version assumed to work |
 | ------------- |-------------:|-------------:|
 | Chrome        | 30.0         | 5.0          |
-| Firefox       | 21.0         | 3.6          |
+| Firefox       | 3.6          | 3.6          |
 | MSIE          | 8.0          | 8.0          |
-| Opera         | 14.0         | 10.6         |
+| Opera         | 12.16        | 10.6         |
 | Safari        | 6.0          | 5.0          |
 
 | mobile Browser | Minimum version known to work | Minimum version assumed to work |
