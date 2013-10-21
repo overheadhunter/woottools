@@ -152,7 +152,7 @@ this mootools extension solves it by polling `location.hash`: http://mootools.ne
 
 | mobile Browser | Minimum version known to work | Minimum version assumed to work |
 | -------------- |-------------:|-------------:|
-| iOS Safari     | 7.0          | 4.0          |
+| iOS Safari     | 6.0          | 4.0          |
 
 
 These tables will be completed as soon as I have time.
