@@ -13,7 +13,7 @@ _Important:_ woottools is in a very early stage of development and the API may b
 Include dependencies (see woot.js for details) and a your woot configuration file:
 ``` html
 <script type="text/javascript" src="js/lib/mootools-core-1.4.5.js"></script>
-<script type="text/javascript" src="js/lib/mootools-more-1.4.0.1.js"></script>
+<script type="text/javascript" src="js/lib/mootools-more-1.4.0.1.js"></script> <!-- more/Utilities/Assets only -->
 <script type="text/javascript" src="js/woot/woot.js"></script>
 <script type="text/javascript" src="js/wootConfig.js"></script>
 ```
